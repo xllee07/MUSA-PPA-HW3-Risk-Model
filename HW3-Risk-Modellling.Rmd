@@ -73,6 +73,20 @@ flatoranges5 <- c('#fff8e1', '#ffcc80', '#ffab40', '#ff8f00', '#ff6f00')
 
 
 ```{r load_data, }
+# Define the folder path
+folder_path <- "./Data"
+
+# List all CSV files with 'street' in the file name
+csv_files <- list.files(path = folder_path, pattern = "street.*\\.csv$", full.names = TRUE)
+
+# Read all CSV files into a list of data frames
+csv_list <- lapply(csv_files, read.csv)
+
+# Combine all data frames using rbind
+combined_data <- do.call(rbind, csv_list)
+
+# View the combined data
+head(combined_data)
 
 
 
