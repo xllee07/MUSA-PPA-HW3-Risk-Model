@@ -1,0 +1,81 @@
+---
+title: "HW3 - Predictive Policing"
+author: "Xian Lu, Lee"
+date: "2024-10-15"
+output: 
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include= FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  results = 'hide',
+  message = FALSE,
+  warning = FALSE)
+
+# Load Libraries
+library(spdep)
+library(ckanr)
+library(FNN)
+library(grid)
+library(gridExtra)
+library(ggcorrplot) # plot correlation plot
+library(corrr)      # another way to plot correlation plot
+library(kableExtra)
+library(jtools)     # for regression model plots
+library(ggstance)   # to support jtools plots
+library(ggpubr)     # plotting R^2 value on ggplot point scatter
+library(broom.mixed)
+library(dplyr)
+library(tidyverse)
+library(tidycensus)
+library(sf)
+library(kableExtra)
+library(gridExtra)
+library(mice)
+library(rcompanion)
+library(caret)
+library(extrafont)
+library(scales)
+library(forcats)
+library(classInt)
+library(stargazer)
+library(pander)
+library(spatstat.explore)
+library(raster)
+library(classInt)  
+library(RSocrata)
+options(scipen = 999)
+options(tigris_class = "sf")
+
+
+q5 <- function(variable) {as.factor(ntile(variable, 5))}
+
+qBr <- function(df, variable, rnd) {
+  if (missing(rnd)) {
+    as.character(quantile(round(df[[variable]],2),
+                          c(.01,.2,.4,.6,.8), na.rm=T))
+  } else if (rnd == FALSE | rnd == F) {
+    as.character(formatC(quantile(df[[variable]],
+                                  c(.01,.2,.4,.6,.8), na.rm=T),
+                         digits = 4))
+  }
+}
+
+flatreds5 <- c('#f9ebea','#e6b0aa','#cd6155', '#cd6155','#7b241c')
+flatblues5 <- c('#ebf5fb', '#a9cce3', '#5499c7', '#2471a3',  '#1a5276')
+flatsage5 <- c('#f6fff8','#eaf4f4', '#cce3de','#a4c3b2','#6b9080')
+flatoranges5 <- c('#fff8e1', '#ffcc80', '#ffab40', '#ff8f00', '#ff6f00')
+```
+
+
+```{r load_data, }
+
+
+
+```
+
+
